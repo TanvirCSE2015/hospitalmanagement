@@ -5,13 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Department extends Model
+class Patient extends Model
 {
-    public function doctors()
-    {
-        return $this->hasMany(Doctor::class);
-    }
-
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
