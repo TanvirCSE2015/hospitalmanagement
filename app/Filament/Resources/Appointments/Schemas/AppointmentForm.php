@@ -109,19 +109,28 @@ class AppointmentForm
                     ->default(null),
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('gender')
+                TextInput::make('age')
+                    ->required(),
+                DatePicker::make('dob')
+                    ->required(),
+                TextInput::make('phone')
+                    ->tel()
+                    ->default(null),
+
+                Select::make('gender')
+                    ->options([
+                        'Male'=>'Male',
+                        'Female'=>'Female',
+                        'Others'=>'Others'
+                    ])
                     ->required(),
                 TextInput::make('attendant_name')
                     ->default(null),
                 TextInput::make('attendant_phone')
                     ->tel()
                     ->default(null),
-                DatePicker::make('dob')
+                TextInput::make('address')
                     ->required(),
-                TextInput::make('phone')
-                    ->tel()
-                    ->default(null),
-                
     
                 Textarea::make('reason')
                     ->default(null)

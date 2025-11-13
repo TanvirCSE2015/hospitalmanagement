@@ -11,16 +11,17 @@ class AppointmentInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('patient.id')
-                    ->label('Patient')
-                    ->placeholder('-'),
-                TextEntry::make('doctor.id')
+
+                
+                TextEntry::make('doctor.user.name')
                     ->label('Doctor'),
-                TextEntry::make('schedule.id')
-                    ->label('Schedule')
-                    ->placeholder('-'),
                 TextEntry::make('name'),
                 TextEntry::make('gender'),
+                TextEntry::make('appointment_date')
+                    ->date(),
+                TextEntry::make('schedule.day')
+                    ->label('Day')
+                    ->placeholder('-'),
                 TextEntry::make('attendant_name')
                     ->placeholder('-'),
                 TextEntry::make('attendant_phone')
@@ -29,8 +30,7 @@ class AppointmentInfolist
                     ->date(),
                 TextEntry::make('phone')
                     ->placeholder('-'),
-                TextEntry::make('appointment_date')
-                    ->dateTime(),
+                
                 TextEntry::make('status')
                     ->badge(),
                 TextEntry::make('reason')
@@ -42,6 +42,6 @@ class AppointmentInfolist
                 TextEntry::make('updated_at')
                     ->dateTime()
                     ->placeholder('-'),
-            ]);
+            ])->columns(3);
     }
 }
