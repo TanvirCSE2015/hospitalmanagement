@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Appointments\Tables;
 
+use App\Filament\Resources\Appointments\AppointmentResource;
 use App\Models\Patient;
 use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
@@ -53,6 +54,10 @@ class AppointmentsTable
                 //
             ])
             ->recordActions([
+                Action::make('details')
+                 ->icon('heroicon-o-eye')
+                ->color('primary')
+                ->url(fn ($record) => AppointmentResource::getUrl('details', ['record' => $record])),
                 ViewAction::make(),
                 EditAction::make(),
                 Action::make('confirm')

@@ -19,7 +19,7 @@ class MedicinesTable
                     ->searchable(),
                 TextColumn::make('generic_name')
                     ->searchable(),
-                TextColumn::make('type.type_name')
+                TextColumn::make('type')
                     ->numeric()
                     ->sortable(),
                 // TextColumn::make('unit.unit_name')
@@ -27,7 +27,7 @@ class MedicinesTable
                 //     ->sortable(),
                 TextColumn::make('strength')
                     ->formatStateUsing(function($state, $record) {
-                        return $state ? $state . $record->unit->unit_name : 'N/A';
+                        return $state ? $state . $record->unit : 'N/A';
                     })
                     ->searchable(),
                 TextColumn::make('manufacturer')

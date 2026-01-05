@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('generic_name')->nullable();
-            $table->foreignId('type_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('unit_id')->constrained()->cascadeOnDelete();
+            $table->string('type');
+            $table->string('unit');
             $table->string('strength')->nullable();
             $table->string('manufacturer')->nullable();
             $table->text('note')->nullable();

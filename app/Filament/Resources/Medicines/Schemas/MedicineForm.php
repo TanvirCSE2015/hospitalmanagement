@@ -29,27 +29,24 @@ class MedicineForm
 
                 Grid::make(2)->schema([
                     // TYPE SELECTION
-                    Select::make('type_id')
+                    TextInput::make('type')
                         ->label('Medicine Type')
-                        ->relationship('type', 'type_name')
-                        ->reactive()
-                        ->afterStateUpdated(fn (callable $set) => $set('unit_id', null))
                         ->required(),
 
                     // DYNAMIC UNIT DROPDOWN
-                    Select::make('unit_id')
+                    TextInput::make('unit')
                         ->label('Unit')
-                        ->options(function (Get $get) {
-                            $typeId = $get('type_id');
-                            if (!$typeId) return [];
+                        // ->options(function (Get $get) {
+                        //     $typeId = $get('type_id');
+                        //     if (!$typeId) return [];
 
-                            $type = Type::with('units')->find($typeId);
-                            return $type?->units?->pluck('unit_name', 'id') ?? [];
-                        })
-                        ->disabled(fn (Get $get) => blank($get('type_id')))
-                        ->required()
-                        ->searchable()
-                        ->preload()
+                        //     $type = Type::with('units')->find($typeId);
+                        //     return $type?->units?->pluck('unit_name', 'id') ?? [];
+                        // })
+                        // ->disabled(fn (Get $get) => blank($get('type_id')))
+                        // ->required()
+                        // ->searchable()
+                        // ->preload()
                         ->helperText('Select a type first to see available units.'),
                 ]),
 
