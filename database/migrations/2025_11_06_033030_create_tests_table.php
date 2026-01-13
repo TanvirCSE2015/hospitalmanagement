@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
-              $table->string('test_name');
+            $table->string('test_name');
             $table->string('standard_value')->nullable(); // e.g. 4.0–5.5 mmol/L
-            $table->foreignId('unit_id')->nullable()->constrained()->nullOnDelete(); // linked to units table
+            $table->string('unit')->nullable(); // linked to units table
             $table->text('description')->nullable(); 
             $table->timestamps();
         });

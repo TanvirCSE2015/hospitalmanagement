@@ -16,6 +16,8 @@ class DesignationsTable
             ->columns([
                 TextColumn::make('designation_name')
                     ->searchable(),
+                TextColumn::make('short_name')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -18,7 +18,7 @@ class TestsTable
                     ->searchable(),
                 TextColumn::make('standard_value')
                     ->formatStateUsing(function($state,$record){
-                        return $state ? $state . ' ' . ($record->unit ? $record->unit->unit_name : '') : null;
+                        return $state ? $state . ' ' . ($record->unit ? $record->unit : '') : null;
                     })
                     ->searchable(),
                 // TextColumn::make('unit_id')
