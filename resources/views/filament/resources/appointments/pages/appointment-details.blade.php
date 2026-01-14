@@ -6,12 +6,16 @@
         Patient Info
     </x-filament::tabs.item>
 
-    <x-filament::tabs.item>
+     <x-filament::tabs.item
+        :active="$activeTab === 'patient_history'"
+        wire:click="$set('activeTab', 'patient_history')">
         Patient History
     </x-filament::tabs.item>
 
-    <x-filament::tabs.item>
-        Prescribtion
+    <x-filament::tabs.item
+        :active="$activeTab === 'prescription'"
+        wire:click="$set('activeTab', 'prescription')">
+        Prescription
     </x-filament::tabs.item>
 </x-filament::tabs>
 
@@ -20,10 +24,10 @@
         <x-filament::card>
             @livewire('appointment.patient-info', ['appointment' => $record])
         </x-filament::card>
-    {{-- @elseif ($activeTab === 'patient_history')
+    @elseif ($activeTab === 'patient_history')
         @livewire('appointment.patient-history', ['appointment' => $record])
     @elseif ($activeTab === 'prescription')
-        @livewire('appointment.prescription', ['appointment' => $record]) --}}
+        @livewire('appointment.prescribtion', ['appointment' => $record])
     @endif
 </div>
 </x-filament-panels::page>

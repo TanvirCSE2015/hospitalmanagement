@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 md:grid-cols-2 gap-4 p-4 bg-white rounded-lg shadow">
-    {{ $this->form }}
+    {{-- {{ $this->form }} --}}
     <div class="space-y-2">
         <div>
             <span class="font-semibold">Name:</span> {{ $appointment->patient->patient_name }}
